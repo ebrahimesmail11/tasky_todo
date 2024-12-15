@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tasky_todo/core/helpers/constants.dart';
+import 'package:tasky_todo/core/helpers/extensions.dart';
 import 'package:tasky_todo/core/helpers/images_manger.dart';
 import 'package:tasky_todo/core/helpers/spacing.dart';
+import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/colors.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
 
@@ -17,7 +19,9 @@ class OnboardingTextButton extends StatelessWidget {
     return Padding(
       padding:  EdgeInsets.symmetric(vertical: 12.h,horizontal: 22.w),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          context.pushReplacementNamed(Routes.loginScreen);
+        },
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(ColorsManager.mainColor),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,

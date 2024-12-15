@@ -47,6 +47,10 @@ dependencies:
   flutter_svg: ^2.0.16
   cached_network_image: ^3.4.1
   device_preview: ^1.2.0
+  phone_numbers_parser: ^9.0.3
+  country_picker: ^2.0.27
+  material_design_icons_flutter: ^7.0.7296
+  country_flags: ^3.1.0
 
 dev_dependencies:
   flutter_test:
