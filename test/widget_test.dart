@@ -7,13 +7,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tasky_todo/core/routing/route_manger.dart';
 
-import 'package:tasky_todo/main.dart';
+
+import 'package:tasky_todo/tasky_todo_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget( MyApp(routeManger: RouteManger(),));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
