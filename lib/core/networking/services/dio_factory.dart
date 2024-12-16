@@ -18,10 +18,10 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-      debugPrint(
+      addDioHeaders();
+       debugPrint(
         '[USER Token] ====> ${LocalStorageHelper.read(ApiConstants.accessToken) ?? 'NULL TOKEN'}',
       );
-      addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
@@ -36,16 +36,16 @@ class DioFactory {
           'Bearer ${await LocalStorageHelper.read(ApiConstants.accessToken)}',
     };
   }
-  static void setToken(String token) async{
-    dio?.options.headers = {
-       'Authorization': 'Bearer $token'
-    };
+
+  static void setToken(String token) async {
+    dio?.options.headers = {'Authorization': 'Bearer $token'};
   }
+
   static void addDioInterceptor() {
     // dio?.interceptors.add();
     dio?.interceptors.add(
       PrettyDioLogger(
-         request: false,
+        request: false,
         compact: false,
       ),
     );

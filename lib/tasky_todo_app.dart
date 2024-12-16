@@ -6,6 +6,7 @@ import 'package:tasky_todo/core/routing/route_manger.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/colors.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
+import 'package:tasky_todo/features/login/cubit/login_cubit.dart';
 import 'package:tasky_todo/features/signup/logic/sign_up_cubit.dart';
 
 class MyApp extends StatelessWidget {
@@ -16,8 +17,15 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      child: BlocProvider<SignUpCubit>(
-        create: (context) => getIt<SignUpCubit>(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+          ),
+        ],
         child: MaterialApp(
           title: 'Tasky',
           theme: ThemeData(

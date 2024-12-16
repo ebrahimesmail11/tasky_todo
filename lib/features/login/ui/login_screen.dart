@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky_todo/core/helpers/constants.dart';
 import 'package:tasky_todo/core/helpers/spacing.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
-import 'package:tasky_todo/core/widgets/app_text_button.dart';
-import 'package:tasky_todo/features/login/widgets/dont_have_account_text.dart';
-import 'package:tasky_todo/features/login/widgets/phone_and_password.dart';
+import 'package:tasky_todo/features/login/ui/widgets/dont_have_account_text.dart';
+import 'package:tasky_todo/features/login/ui/widgets/login_bloc_listener.dart';
+import 'package:tasky_todo/features/login/ui/widgets/phone_and_password.dart';
 import 'package:tasky_todo/features/onboarding/widgets/landing_image.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -19,7 +19,6 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const LandingImage(),
               Padding(
@@ -35,12 +34,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     verticalSpace(24),
                     const PhoneAndPassword(),
-                    verticalSpace(24),
-                    AppTextButton(
-                      buttonText: "Sign In",
-                      textStyle: TextStyles.font16WhiteSemiBold,
-                      onPressed: () {},
-                    ),
+                    const LoginBlocListener(),
                   ],
                 ),
               ),

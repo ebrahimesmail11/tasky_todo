@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/features/home/ui/home_screen.dart';
-import 'package:tasky_todo/features/login/login_screen.dart';
+import 'package:tasky_todo/features/login/ui/login_screen.dart';
 
 import 'package:tasky_todo/features/onboarding/onboarding_screen.dart';
 import 'package:tasky_todo/features/signup/ui/signup_screen.dart';

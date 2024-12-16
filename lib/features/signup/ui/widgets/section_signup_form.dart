@@ -24,24 +24,25 @@ class SectionSignupForm extends StatefulWidget {
 }
 
 class _SectionSignupFormState extends State<SectionSignupForm> {
-  final formKey = GlobalKey<FormState>();
-
-  TextEditingController nameController = TextEditingController();
-  TextEditingController yearsOfExperinceController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-  TextEditingController experienceLevelController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController yearsOfExperinceController =
+      TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController experienceLevelController =
+      TextEditingController();
   String? fullPhoneNumberValue;
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   void dispose() {
-    super.dispose();
     nameController.dispose();
     phoneController.dispose();
     yearsOfExperinceController.dispose();
     addressController.dispose();
     experienceLevelController.dispose();
     passwordController.dispose();
+    super.dispose();
   }
 
   @override
