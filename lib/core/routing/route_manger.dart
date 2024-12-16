@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
+import 'package:tasky_todo/features/home/ui/home_screen.dart';
 import 'package:tasky_todo/features/login/login_screen.dart';
+
 import 'package:tasky_todo/features/onboarding/onboarding_screen.dart';
-import 'package:tasky_todo/features/signup/signup_screen.dart';
+import 'package:tasky_todo/features/signup/ui/signup_screen.dart';
 import 'package:tasky_todo/features/splash/splash_screen.dart';
 
 class RouteManger {
@@ -24,6 +26,10 @@ class RouteManger {
       case Routes.signUpScreen:
         return MaterialPageRoute(
           builder: (_) => const SignupScreen(),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
         );
       default:
         return MaterialPageRoute(

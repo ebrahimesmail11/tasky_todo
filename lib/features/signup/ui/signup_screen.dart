@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tasky_todo/features/signup/widgets/already_have_account_text.dart';
-import 'package:tasky_todo/features/signup/widgets/section_signup_button.dart';
-import 'package:tasky_todo/features/signup/widgets/section_signup_form.dart';
-import 'package:tasky_todo/features/signup/widgets/signup_image.dart';
+import 'package:tasky_todo/features/signup/ui/widgets/already_have_account_text.dart';
+import 'package:tasky_todo/features/signup/ui/widgets/section_signup_form.dart';
+import 'package:tasky_todo/features/signup/ui/widgets/signup_bloc_listener.dart';
+import 'package:tasky_todo/features/signup/ui/widgets/signup_image.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -16,8 +16,8 @@ class SignupScreen extends StatelessWidget {
             children: [
               SingupImage(),
               SectionSignupForm(),
-              SectionSignupButton(),
               AlreadyHaveAccountText(),
+              SignupBlocListener(),
             ],
           ),
         ),

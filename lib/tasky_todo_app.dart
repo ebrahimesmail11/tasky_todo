@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasky_todo/core/di/dependency_injection.dart';
 import 'package:tasky_todo/core/routing/route_manger.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/colors.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
+import 'package:tasky_todo/features/signup/logic/sign_up_cubit.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({required this.routeManger, super.key});
@@ -13,16 +16,19 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      child: MaterialApp(
-        title: 'Tasky',
-        theme: ThemeData(
-          fontFamily: TextStyles.dmSan,
-          primaryColor: ColorsManager.mainColor,
-          scaffoldBackgroundColor: Colors.white,
+      child: BlocProvider<SignUpCubit>(
+        create: (context) => getIt<SignUpCubit>(),
+        child: MaterialApp(
+          title: 'Tasky',
+          theme: ThemeData(
+            fontFamily: TextStyles.dmSan,
+            primaryColor: ColorsManager.mainColor,
+            scaffoldBackgroundColor: Colors.white,
+          ),
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.splashScreen,
+          onGenerateRoute: routeManger.generateRoute,
         ),
-        debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splashScreen,
-        onGenerateRoute: routeManger.generateRoute,
       ),
     );
   }

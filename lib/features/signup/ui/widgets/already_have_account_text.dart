@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky_todo/core/helpers/extensions.dart';
 
-import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/routing/routes.dart';
+import '../../../../../core/theming/styles.dart';
 
 class AlreadyHaveAccountText extends StatelessWidget {
   const AlreadyHaveAccountText({super.key});
