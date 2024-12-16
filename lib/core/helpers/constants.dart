@@ -1,3 +1,4 @@
+bool isloggedInUser = false;
 class AppConstants {
   static const String taskManagementTitle = 'Task Management &\nTo-Do List';
   static const String taskManagementDescription = '''

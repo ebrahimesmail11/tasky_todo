@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky_todo/core/helpers/constants.dart';
 import 'package:tasky_todo/core/helpers/extensions.dart';
 import 'package:tasky_todo/core/helpers/images_manger.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
@@ -10,9 +11,10 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
       if (!context.mounted) return;
-      context.pushNamedAndRemoveUntil(
-        Routes.onBoardingScreen,
-        predicate: (route) => false,
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        isloggedInUser ? Routes.homeScreen : Routes.onBoardingScreen,
+        (route) => false,
       );
     });
     return Scaffold(
