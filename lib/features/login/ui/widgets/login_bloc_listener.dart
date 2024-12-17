@@ -4,7 +4,7 @@ import 'package:tasky_todo/core/helpers/extensions.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/colors.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
-import 'package:tasky_todo/features/login/cubit/login_cubit.dart';
+import 'package:tasky_todo/features/login/logic/login_cubit.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});

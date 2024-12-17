@@ -8,6 +8,7 @@ class ApiConstants {
   static const String signup = "auth/register";
   static const String logout = "auth/logout";
   static const String profile = "auth/profile";
+  static const String refreshTooken = "auth/refresh-token";
 }
 
 class ApiErrors {

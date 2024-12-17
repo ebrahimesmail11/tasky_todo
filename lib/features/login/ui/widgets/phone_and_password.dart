@@ -5,7 +5,7 @@ import 'package:tasky_todo/core/theming/styles.dart';
 import 'package:tasky_todo/core/widgets/app_text_button.dart';
 import 'package:tasky_todo/core/widgets/app_text_from_field.dart';
 import 'package:tasky_todo/core/widgets/phone_text_field.dart';
-import 'package:tasky_todo/features/login/cubit/login_cubit.dart';
+import 'package:tasky_todo/features/login/logic/login_cubit.dart';
 import 'package:tasky_todo/features/login/data/models/login_request_body.dart';
 
 class PhoneAndPassword extends StatefulWidget {

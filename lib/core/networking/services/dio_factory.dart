@@ -4,6 +4,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'package:tasky_todo/core/helpers/local_storage_helper.dart';
 import 'package:tasky_todo/core/networking/services/api_constants.dart';
+import 'package:tasky_todo/core/networking/services/app_interceptor.dart';
 
 class DioFactory {
   DioFactory._();
@@ -19,10 +20,10 @@ class DioFactory {
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
       addDioHeaders();
-       debugPrint(
+      addDioInterceptor();
+      debugPrint(
         '[USER Token] ====> ${LocalStorageHelper.read(ApiConstants.accessToken) ?? 'NULL TOKEN'}',
       );
-      addDioInterceptor();
       return dio!;
     } else {
       return dio!;
@@ -42,7 +43,9 @@ class DioFactory {
   }
 
   static void addDioInterceptor() {
-    // dio?.interceptors.add();
+    dio?.interceptors.add(
+      AppInterceptor(),
+    );
     dio?.interceptors.add(
       PrettyDioLogger(
         request: false,

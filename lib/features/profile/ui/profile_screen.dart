@@ -5,7 +5,7 @@ import 'package:tasky_todo/core/di/dependency_injection.dart';
 import 'package:tasky_todo/core/helpers/constants.dart';
 import 'package:tasky_todo/core/helpers/spacing.dart';
 import 'package:tasky_todo/core/widgets/custom_app_bar.dart';
-import 'package:tasky_todo/features/profile/cubit/profile_cubit.dart';
+import 'package:tasky_todo/features/profile/logic/profile_cubit.dart';
 import 'package:tasky_todo/features/profile/ui/widgets/profile_info_list_view.dart';
 
 class ProfileScreen extends StatelessWidget {

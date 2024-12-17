@@ -10,3 +10,6 @@ Map<String, String> experienceLevelsMap = {
   'Senior': 'senior',
   'Fresh': 'fresh',
 };
+enum Status { waiting, finished, inProgress }
+
+enum Priority { low, high, medium }
