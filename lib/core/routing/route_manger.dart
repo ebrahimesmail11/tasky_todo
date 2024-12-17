@@ -4,6 +4,7 @@ import 'package:tasky_todo/features/home/ui/home_screen.dart';
 import 'package:tasky_todo/features/login/ui/login_screen.dart';
 
 import 'package:tasky_todo/features/onboarding/onboarding_screen.dart';
+import 'package:tasky_todo/features/profile/ui/profile_screen.dart';
 import 'package:tasky_todo/features/signup/ui/signup_screen.dart';
 import 'package:tasky_todo/features/splash/splash_screen.dart';
 
@@ -30,6 +31,10 @@ class RouteManger {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+        case Routes.profileScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ProfileScreen(),
         );
       default:
         return MaterialPageRoute(

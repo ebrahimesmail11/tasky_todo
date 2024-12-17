@@ -1,6 +1,6 @@
 class IconsManager {
   static const String addPhoto = 'assets/Icons/add_photo.svg';
-  static const String arrowLeftDark = 'assets/Icons/arrow _left_dark.svg';
+  static const String arrowLeftDark = 'assets/Icons/arrow_left_dark.png';
   static const String arrowDown = 'assets/Icons/arrow_down.svg';
   static const String arrowLeftLight = 'assets/Icons/arrow_left_light.svg';
   static const String calendar = 'assets/Icons/calendar.svg';
