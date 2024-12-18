@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tasky_todo/core/helpers/spacing.dart';
+import 'package:tasky_todo/core/helpers/utils.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
 import 'package:tasky_todo/core/widgets/my_custom_cached_network_image.dart';
+import 'package:tasky_todo/features/home/data/models/todos_response.dart';
 
 class TaskListTile extends StatelessWidget {
-  const TaskListTile({super.key});
-
+  const TaskListTile({required this.todo, super.key});
+  final TodosResponse todo;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,7 +25,7 @@ class TaskListTile extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(50.r),
               child: MyCustomCahedNetworkImage(
-                taskImage: '',
+                taskImage: todo.image ?? '',
                 height: 64.h,
                 width: 64.w,
                 fit: BoxFit.cover,
@@ -32,6 +34,7 @@ class TaskListTile extends StatelessWidget {
             horizontalSpace(14),
             Expanded(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: Row(
@@ -39,7 +42,9 @@ class TaskListTile extends StatelessWidget {
                         Expanded(
                           flex: 2,
                           child: Text(
-                            'Grocery Shopping App',
+                            capitalizeFirstLetter(
+                              todo.title ?? '',
+                            ),
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
@@ -54,14 +59,16 @@ class TaskListTile extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 9.w, vertical: 5.h),
                             decoration: BoxDecoration(
-                              //   color
+                                color: getRightStatusContainerColor(todo.status ?? ''),
                               borderRadius: BorderRadius.circular(5.r),
                             ),
                             child: Text(
-                              'Waiting',
-                             
+                              textAlign: TextAlign.center,
+                              capitalizeFirstLetter(
+                                todo.status ?? '',
+                              ),
                               style: TextStyles.font12RedMedium.copyWith(
-                                  //  color
+                                    color: getRightStatusTextColor(todo.status??'')
                                   ),
                             ),
                           ),
@@ -71,8 +78,9 @@ class TaskListTile extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Text(
-                    'This application is designed for super shops. By using \nthis application they can enlist all their products in one \nplace and can deliver. Customers will get a one-stop \nsolution for their daily shopping.',
-                  
+                     capitalizeFirstLetter(
+                              todo.desc??'',
+                            ),
                     style: TextStyle(
                       fontSize: 14.sp,
                       color: Colors.grey,
@@ -83,25 +91,21 @@ class TaskListTile extends StatelessWidget {
                   Row(
                     children: [
                       SvgPicture.asset(
-                        '',
-                       
+                        getFlagImage(todo.priority ?? ''),
                         height: 16.h,
                         width: 16.w,
                       ),
                       SizedBox(width: 4.w),
                       Text(
-                        'Medium',
-                     
+                        capitalizeFirstLetter(todo.priority??''),
                         style: TextStyles.font12MainPurpleMedium.copyWith(
                           fontSize: 14.sp,
-                          //color
-                          
+                          color: getFlagTextColor(todo.priority??''),
                         ),
                       ),
                       const Spacer(),
                       Text(
-                        '30/12/2022',
-
+                        convertTimestampToDate(todo.createdAt??''),
                         style: TextStyles.font12GrayRegular,
                       ),
                     ],
@@ -109,6 +113,7 @@ class TaskListTile extends StatelessWidget {
                 ],
               ),
             ),
+            8.horizontalSpace,
             Icon(
               Icons.more_vert,
               size: 25.h,

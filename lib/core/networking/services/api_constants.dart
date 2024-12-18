@@ -9,6 +9,7 @@ class ApiConstants {
   static const String logout = "auth/logout";
   static const String profile = "auth/profile";
   static const String refreshTooken = "auth/refresh-token";
+  static const String getTodos= "todos";
 }
 
 class ApiErrors {

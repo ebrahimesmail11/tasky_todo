@@ -35,8 +35,8 @@ void setupErrorState(BuildContext context, String error) {
   );
 }
 
-String getFlagImage(String flag) {
-  switch (flag) {
+String getFlagImage(String priority) {
+  switch (priority) {
     case 'low':
       return IconsManager.blueFlagIcon;
     case 'medium':
@@ -48,8 +48,8 @@ String getFlagImage(String flag) {
   }
 }
 
-Color getFlagTextColor(String flag) {
-  switch (flag) {
+Color getFlagTextColor(String priority) {
+  switch (priority) {
     case 'low':
       return ColorsManager.textBlue;
     case 'medium':
@@ -61,21 +61,21 @@ Color getFlagTextColor(String flag) {
   }
 }
 
-Color getFlagContainerColor(String flag) {
-  switch (flag) {
-    case 'low':
-      return ColorsManager.containerBlue;
-    case 'medium':
-      return ColorsManager.containerMain;
-    case 'high':
-      return ColorsManager.containerRed;
-    default:
-      return Colors.white;
-  }
-}
+// Color getFlagContainerColor(String priority) {
+//   switch (priority) {
+//     case 'low':
+//       return ColorsManager.containerBlue;
+//     case 'medium':
+//       return ColorsManager.containerMain;
+//     case 'high':
+//       return ColorsManager.containerRed;
+//     default:
+//       return Colors.white;
+//   }
+// }
 
-Color getRightStatusContainerColor(String priority) {
-  switch (priority) {
+Color getRightStatusContainerColor(String status) {
+  switch (status) {
     case 'waiting':
       return ColorsManager.containerRed;
     case 'inProgress':
@@ -87,8 +87,8 @@ Color getRightStatusContainerColor(String priority) {
   }
 }
 
-Color getRightStatusTextColor(String priority) {
-  switch (priority) {
+Color getRightStatusTextColor(String status) {
+  switch (status) {
     case 'waiting':
       return ColorsManager.textRed;
     case 'inProgress':

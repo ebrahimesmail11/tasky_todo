@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tasky_todo/core/networking/services/api_service.dart';
 import 'package:tasky_todo/core/networking/services/dio_factory.dart';
+import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
+import 'package:tasky_todo/features/home/data/repos/todos_repo.dart';
 import 'package:tasky_todo/features/login/logic/login_cubit.dart';
 import 'package:tasky_todo/features/login/data/repos/login_repo.dart';
 import 'package:tasky_todo/features/profile/logic/profile_cubit.dart';
@@ -22,5 +24,7 @@ Future<void> setUpGetIt() async {
   );
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
-  getIt.registerFactory<ProfileCubit>(()=>ProfileCubit(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+  getIt.registerLazySingleton<TodosRepo>(() => TodosRepo(getIt()));
+  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 }

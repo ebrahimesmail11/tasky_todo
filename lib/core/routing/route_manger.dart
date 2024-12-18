@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasky_todo/core/di/dependency_injection.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
+import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/ui/home_screen.dart';
 import 'package:tasky_todo/features/login/ui/login_screen.dart';
 
@@ -30,9 +33,12 @@ class RouteManger {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<HomeCubit>()..getTodos(),
+            child: const HomeScreen(),
+          ),
         );
-        case Routes.profileScreen:
+      case Routes.profileScreen:
         return MaterialPageRoute(
           builder: (_) => const ProfileScreen(),
         );
