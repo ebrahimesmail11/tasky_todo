@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky_todo/core/di/dependency_injection.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
+import 'package:tasky_todo/features/addtask/ui/add_task_screen.dart';
 import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/ui/home_screen.dart';
 import 'package:tasky_todo/features/login/ui/login_screen.dart';
@@ -41,6 +42,10 @@ class RouteManger {
       case Routes.profileScreen:
         return MaterialPageRoute(
           builder: (_) => const ProfileScreen(),
+        );
+        case Routes.addTaskScreen:
+        return MaterialPageRoute(
+          builder: (_) => const AddTaskScreen(),
         );
       default:
         return MaterialPageRoute(

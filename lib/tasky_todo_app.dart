@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.splashScreen,
+           navigatorKey: getIt<GlobalKey<NavigatorState>>(),
           onGenerateRoute: routeManger.generateRoute,
         ),
       ),

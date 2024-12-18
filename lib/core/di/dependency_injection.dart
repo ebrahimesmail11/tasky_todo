@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tasky_todo/core/networking/services/api_service.dart';
 import 'package:tasky_todo/core/networking/services/dio_factory.dart';
@@ -14,7 +15,10 @@ import 'package:tasky_todo/features/signup/data/repos/signup_repo.dart';
 final getIt = GetIt.instance;
 Future<void> setUpGetIt() async {
   Dio dio = DioFactory.getDio();
-  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+  final navigatorKey = GlobalKey<NavigatorState>();
+  getIt
+    ..registerLazySingleton<ApiService>(() => ApiService(dio))
+    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey);
   getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
   getIt.registerLazySingleton<LoginRepo>(

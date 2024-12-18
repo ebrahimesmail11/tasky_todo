@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:tasky_todo/core/networking/services/api_constants.dart';
+import 'package:tasky_todo/features/addtask/data/models/upload_image_response.dart';
 import 'package:tasky_todo/features/home/data/models/todos_response.dart';
 import 'package:tasky_todo/features/login/data/models/login_request_body.dart';
 import 'package:tasky_todo/features/login/data/models/login_response_body.dart';
@@ -32,4 +33,6 @@ abstract class ApiService {
   Future<List<TodosResponse>>getTodos(
     @Query('page') int page,
   );
+  @POST(ApiConstants.uploadImage)
+  Future<UploadImageResponse> uploadImage(@Body() FormData file);
 }

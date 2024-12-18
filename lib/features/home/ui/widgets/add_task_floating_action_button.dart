@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasky_todo/core/helpers/extensions.dart';
+import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/colors.dart';
 
 class AddTaskFloatingActionButton extends StatelessWidget {
@@ -12,7 +14,9 @@ class AddTaskFloatingActionButton extends StatelessWidget {
       height: 64.h,
       child: FloatingActionButton(
        heroTag: 'tag_add',
-        onPressed: (){},
+        onPressed: (){
+          context.pushNamed(Routes.addTaskScreen);
+        },
         backgroundColor: ColorsManager.mainColor,
         shape:const  CircleBorder(),
         child: Icon(
