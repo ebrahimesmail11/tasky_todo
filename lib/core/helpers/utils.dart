@@ -61,18 +61,18 @@ Color getFlagTextColor(String priority) {
   }
 }
 
-// Color getFlagContainerColor(String priority) {
-//   switch (priority) {
-//     case 'low':
-//       return ColorsManager.containerBlue;
-//     case 'medium':
-//       return ColorsManager.containerMain;
-//     case 'high':
-//       return ColorsManager.containerRed;
-//     default:
-//       return Colors.white;
-//   }
-// }
+Color getFlagContainerColor(String priority) {
+  switch (priority) {
+    case 'low':
+      return ColorsManager.containerBlue;
+    case 'medium':
+      return ColorsManager.containerMain;
+    case 'high':
+      return ColorsManager.containerRed;
+    default:
+      return Colors.white;
+  }
+}
 
 Color getRightStatusContainerColor(String status) {
   switch (status) {

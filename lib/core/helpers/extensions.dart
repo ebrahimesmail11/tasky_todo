@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky_todo/core/helpers/enums.dart';
 
 extension Navigation on BuildContext {
   //Colors
@@ -89,4 +90,82 @@ extension StringExtension on String? {
 
 extension ListExtension<T> on List<T>? {
   bool isNullOrEmpty() => this == null || this!.isEmpty;
+}
+
+
+//priority enum_________________________________________________________
+extension PriorityExtension on Priority {
+  String get displayName {
+    switch (this) {
+      case Priority.low:
+        return "Low priority";
+      case Priority.medium:
+        return "Medium priority";
+      case Priority.high:
+        return "High priority";
+    }
+  }
+
+  String get apiValue {
+    switch (this) {
+      case Priority.low:
+        return "low";
+      case Priority.medium:
+        return "medium";
+      case Priority.high:
+        return "high";
+    }
+  }
+
+  static Priority fromApiValue(String value) {
+    switch (value) {
+      case "low":
+        return Priority.low;
+      case "medium":
+        return Priority.medium;
+      case "high":
+        return Priority.high;
+      default:
+        throw ArgumentError("Invalid Priority value");
+    }
+  }
+}
+
+
+//status enum______________________________________
+extension StatusExtension on Status {
+  String get displayName {
+    switch (this) {
+      case Status.waiting:
+        return "Waiting";
+      case Status.finished:
+        return "Finished";
+      case Status.inProgress:
+        return "In Progress";
+    }
+  }
+
+  String get apiValue {
+    switch (this) {
+      case Status.waiting:
+        return "waiting";
+      case Status.finished:
+        return "finished";
+      case Status.inProgress:
+        return "inProgress";
+    }
+  }
+
+  static Status fromApiValue(String value) {
+    switch (value) {
+      case "waiting":
+        return Status.waiting;
+      case "finished":
+        return Status.finished;
+      case "inProgress":
+        return Status.inProgress;
+      default:
+        throw ArgumentError("Invalid Status value");
+    }
+  }
 }

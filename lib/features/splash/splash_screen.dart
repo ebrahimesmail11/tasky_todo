@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tasky_todo/core/helpers/constants.dart';
-import 'package:tasky_todo/core/helpers/extensions.dart';
 import 'package:tasky_todo/core/helpers/images_manger.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
 

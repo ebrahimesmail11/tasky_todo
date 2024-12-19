@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tasky_todo/core/networking/services/api_service.dart';
 import 'package:tasky_todo/core/networking/services/dio_factory.dart';
+import 'package:tasky_todo/features/addtask/data/repos/add_task_repo.dart';
+import 'package:tasky_todo/features/addtask/data/repos/upload_image_repo.dart';
+import 'package:tasky_todo/features/addtask/logic/cubit/add_task_cubit.dart';
+import 'package:tasky_todo/features/addtask/logic/upload/upload_image_cubit.dart';
 import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/data/repos/todos_repo.dart';
 import 'package:tasky_todo/features/login/logic/login_cubit.dart';
@@ -31,4 +35,8 @@ Future<void> setUpGetIt() async {
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
   getIt.registerLazySingleton<TodosRepo>(() => TodosRepo(getIt()));
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+   getIt.registerLazySingleton<UploadImageRepo>(() => UploadImageRepo(getIt()));
+   getIt.registerFactory<UploadImageCubit>(()=> UploadImageCubit(getIt()));
+   getIt.registerLazySingleton<AddTaskRepo>(()=>AddTaskRepo(getIt()));
+   getIt.registerFactory<AddTaskCubit>(()=>AddTaskCubit(getIt()));
 }

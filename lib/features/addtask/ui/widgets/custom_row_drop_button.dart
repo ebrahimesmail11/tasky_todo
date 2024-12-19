@@ -32,29 +32,42 @@ class CustomRowDropButton<T> extends StatefulWidget {
 
 class _CustomRowDropButtonState<T> extends State<CustomRowDropButton<T>> {
   late T selectedValue;
+   @override
+  void initState() {
+    super.initState();
+    selectedValue = widget.initialValue; // Initialize selectedValue with the initialValue
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      height: 50.h,
-      width: double.infinity,
-      decoration: BoxDecoration(
-          color: widget.containerColor(selectedValue),
-          borderRadius: BorderRadius.circular(15.r)),
-      child: Row(
-        children: [
-          widget.flagImage != null
-              ? SvgPicture.asset(widget.flagImage!(selectedValue))
-              : const SizedBox(),
-          horizontalSpace(10),
-          Text(
-            widget.displayName(selectedValue),
-            style: TextStyles.font12MainPurpleMedium
-                .copyWith(color: widget.textColor(selectedValue)),
-          ),
-          const Spacer(),
-          SvgPicture.asset(IconsManager.arrowDown),
-        ],
+    return GestureDetector(
+       onTapDown: (details) async {
+        FocusScope.of(context).requestFocus( FocusNode());
+        selectedValue = await showPopupMenu(context, details.globalPosition);
+        widget.onValueSelected(selectedValue);
+        setState(() {});
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        height: 50.h,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            color: widget.containerColor(selectedValue),
+            borderRadius: BorderRadius.circular(15.r)),
+        child: Row(
+          children: [
+            widget.flagImage != null
+                ? SvgPicture.asset(widget.flagImage!(selectedValue))
+                : const SizedBox(),
+            horizontalSpace(10),
+            Text(
+              widget.displayName(selectedValue),
+              style: TextStyles.font12MainPurpleMedium
+                  .copyWith(color: widget.textColor(selectedValue)),
+            ),
+            const Spacer(),
+            SvgPicture.asset(IconsManager.arrowDown),
+          ],
+        ),
       ),
     );
   }

@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:tasky_todo/core/networking/services/api_constants.dart';
-
 class MyCustomCahedNetworkImage extends StatelessWidget {
   const MyCustomCahedNetworkImage({
     super.key,
@@ -22,7 +20,7 @@ class MyCustomCahedNetworkImage extends StatelessWidget {
       errorWidget: (context, string, s) => Image.asset(
         'assets/images/splash_android_12.png',
       ),
-      imageUrl: '${ApiConstants.apiBaseUrl}images/$taskImage',
+      imageUrl: taskImage,
       
       height: height,
       placeholder: (context, string) => Image.asset(

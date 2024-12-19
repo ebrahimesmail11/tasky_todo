@@ -4,7 +4,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:tasky_todo/core/di/dependency_injection.dart';
 import 'package:tasky_todo/core/helpers/extensions.dart';
 
-
 class PickImage {
   factory PickImage() => _instance;
   const PickImage._();
@@ -16,6 +15,7 @@ class PickImage {
         source: ImageSource.gallery,
       );
       if (image != null) {
+        debugPrint('Picked image path: ${image.path}');
         return XFile(image.path);
       } else {
         return null;

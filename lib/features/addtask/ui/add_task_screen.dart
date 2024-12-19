@@ -14,14 +14,16 @@ class AddTaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return   Scaffold(
       appBar: const CustomAppBar(title: AppConstants.addNewTask,),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22.w),
-        child:  Column(
-          children: [
-          const  AddImageButton(),
-           verticalSpace(16),
-           const AddTaskForm(),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 22.w),
+          child:  Column(
+            children: [
+            const  AddImageButton(),
+             verticalSpace(16),
+             const AddTaskForm(),
+            ],
+          ),
         ),
       ),
     );

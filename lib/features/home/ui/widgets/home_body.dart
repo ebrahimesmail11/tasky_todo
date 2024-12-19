@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky_todo/core/helpers/constants.dart';
 import 'package:tasky_todo/core/helpers/spacing.dart';
 import 'package:tasky_todo/core/helpers/utils.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
-import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 
 import 'package:tasky_todo/features/home/ui/widgets/categories_list_view.dart';
-import 'package:tasky_todo/features/home/ui/widgets/home_list_view_bloc_builder.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
