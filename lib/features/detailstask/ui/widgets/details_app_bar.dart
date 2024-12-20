@@ -7,8 +7,9 @@ import 'package:tasky_todo/core/theming/styles.dart';
 import 'package:tasky_todo/features/detailstask/ui/widgets/option_drop_button.dart';
 
 class DetailsAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const DetailsAppBar({required this.title, super.key});
+  const DetailsAppBar({required this.title,required this.id, super.key});
   final String title;
+  final String id;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -38,8 +39,8 @@ class DetailsAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
-      actions:  const [
-       OptionDropButton(),
+      actions:   [
+       OptionDropButton(id: id,),
       ],
     );
   }

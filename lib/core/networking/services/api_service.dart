@@ -46,4 +46,6 @@ abstract class ApiService {
   );
   @GET('/todos/{id}')
   Future<DetailsTaskResponse> detailsTask(@Path('id') String id);
+  @DELETE('/todos/{id}')
+  Future<void> deleteTask(@Path('id') String id);
 }

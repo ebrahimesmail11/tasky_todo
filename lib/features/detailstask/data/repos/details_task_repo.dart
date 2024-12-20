@@ -14,4 +14,12 @@ class DetailsTaskRepo {
       return ApiResult.failure(ErrorHandler.handle(e));
     }
   }
+  Future<ApiResult<void>> deleteTask(String id) async {
+    try{
+      final response = await _apiService.deleteTask(id);
+      return ApiResult.success(response);
+    }catch(e){
+      return ApiResult.failure(ErrorHandler.handle(e));
+    }
+  }
 }

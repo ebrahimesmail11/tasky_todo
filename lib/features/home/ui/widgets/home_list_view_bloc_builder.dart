@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tasky_todo/core/helpers/extensions.dart';
 import 'package:tasky_todo/core/helpers/spacing.dart';
-import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
 import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/ui/widgets/task_list_tile.dart';

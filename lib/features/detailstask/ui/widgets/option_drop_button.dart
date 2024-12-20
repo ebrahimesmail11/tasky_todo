@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasky_todo/core/di/dependency_injection.dart';
 import 'package:tasky_todo/core/helpers/extensions.dart';
 import 'package:tasky_todo/core/theming/colors.dart';
 import 'package:tasky_todo/core/theming/font_weight_helper.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
 import 'package:tasky_todo/core/widgets/custom_shap_painter.dart';
+import 'package:tasky_todo/features/detailstask/logic/cubit/delete_task_cubit.dart';
 
 class OptionDropButton extends StatefulWidget {
-  const OptionDropButton({super.key});
-
+  const OptionDropButton({required this.id, super.key});
+  final String id;
   @override
   State<OptionDropButton> createState() => _OptionDropButtonState();
 }
@@ -19,7 +22,7 @@ class _OptionDropButtonState extends State<OptionDropButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () => _showCustomMenu(context, _overlayEntry),
+      onPressed: () => _showCustomMenu(context, _overlayEntry, widget.id),
       color: ColorsManager.textBlack,
       key: _menuKey,
       iconSize: 25.h,
@@ -28,13 +31,13 @@ class _OptionDropButtonState extends State<OptionDropButton> {
   }
 }
 
-void _showCustomMenu(context, overlayEntry) {
+void _showCustomMenu(BuildContext context, OverlayEntry? overlayEntry, id,) {
   if (overlayEntry != null) {
-    overlayEntry!.remove();
+    overlayEntry.remove();
     overlayEntry = null;
   } else {
     overlayEntry = OverlayEntry(
-      builder: (context) {
+      builder: (BuildContext overlayContext) {
         return GestureDetector(
           onTap: () {
             overlayEntry!.remove();
@@ -67,8 +70,7 @@ void _showCustomMenu(context, overlayEntry) {
                                   child: Center(
                                     child: Text(
                                       'Edit',
-                                      style:
-                                          TextStyles.font16BlackBold.copyWith(
+                                      style: TextStyles.font16BlackBold.copyWith(
                                         fontWeight: FontWeightHelper.bold,
                                       ),
                                     ),
@@ -80,8 +82,11 @@ void _showCustomMenu(context, overlayEntry) {
                                 indent: 10,
                               ),
                               InkWell(
-                                onTap: () {
+                                onTap: ()async {
+                                  // استخدم `context` الصحيح هنا
+                                 await context.read<DeleteTaskCubit>().deleteTask(id);
                                   overlayEntry!.remove();
+                                  if(!context.mounted) return;
                                   context.pop();
                                 },
                                 child: SizedBox(
@@ -89,8 +94,9 @@ void _showCustomMenu(context, overlayEntry) {
                                   child: Text(
                                     'Delete',
                                     style: TextStyles.font16BlackBold.copyWith(
-                                        fontWeight: FontWeightHelper.bold,
-                                        color: ColorsManager.textLightRed),
+                                      fontWeight: FontWeightHelper.bold,
+                                      color: ColorsManager.textLightRed,
+                                    ),
                                   ),
                                 ),
                               ),
