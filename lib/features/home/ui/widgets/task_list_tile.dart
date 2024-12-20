@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tasky_todo/core/helpers/extensions.dart';
 import 'package:tasky_todo/core/helpers/spacing.dart';
 import 'package:tasky_todo/core/helpers/utils.dart';
+import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
 import 'package:tasky_todo/core/widgets/my_custom_cached_network_image.dart';
 import 'package:tasky_todo/features/home/data/models/todos_response.dart';
@@ -13,7 +15,12 @@ class TaskListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.pushNamed(
+          Routes.detailsTaskScreen,
+          arguments: todo.id,
+        );
+      },
       child: Container(
         color: Colors.white,
         height: 96.h,

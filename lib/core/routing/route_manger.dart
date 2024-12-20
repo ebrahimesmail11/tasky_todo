@@ -5,6 +5,8 @@ import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/features/addtask/logic/cubit/add_task_cubit.dart';
 import 'package:tasky_todo/features/addtask/logic/upload/upload_image_cubit.dart';
 import 'package:tasky_todo/features/addtask/ui/add_task_screen.dart';
+import 'package:tasky_todo/features/detailstask/cubit/details_task_cubit.dart';
+import 'package:tasky_todo/features/detailstask/ui/details_task.dart';
 import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/ui/home_screen.dart';
 import 'package:tasky_todo/features/login/ui/login_screen.dart';
@@ -57,6 +59,12 @@ class RouteManger {
               ),
             ],
             child: const AddTaskScreen(),
+          ),
+        );
+      case Routes.detailsTaskScreen:
+        return MaterialPageRoute(
+          builder: (_) => DetailsTaskScreen(
+            id: arg! as String,
           ),
         );
       default:

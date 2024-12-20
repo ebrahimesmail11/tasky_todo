@@ -55,6 +55,7 @@ dependencies:
   dotted_border: ^2.1.0
   image_picker: ^1.1.2
   permission_handler: ^11.3.1
+  pretty_qr_code: ^3.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

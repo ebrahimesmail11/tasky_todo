@@ -7,6 +7,8 @@ import 'package:tasky_todo/features/addtask/data/repos/add_task_repo.dart';
 import 'package:tasky_todo/features/addtask/data/repos/upload_image_repo.dart';
 import 'package:tasky_todo/features/addtask/logic/cubit/add_task_cubit.dart';
 import 'package:tasky_todo/features/addtask/logic/upload/upload_image_cubit.dart';
+import 'package:tasky_todo/features/detailstask/cubit/details_task_cubit.dart';
+import 'package:tasky_todo/features/detailstask/data/repos/details_task_repo.dart';
 import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/data/repos/todos_repo.dart';
 import 'package:tasky_todo/features/login/logic/login_cubit.dart';
@@ -39,4 +41,6 @@ Future<void> setUpGetIt() async {
    getIt.registerFactory<UploadImageCubit>(()=> UploadImageCubit(getIt()));
    getIt.registerLazySingleton<AddTaskRepo>(()=>AddTaskRepo(getIt()));
    getIt.registerFactory<AddTaskCubit>(()=>AddTaskCubit(getIt()));
+     getIt.registerLazySingleton<DetailsTaskRepo>(()=>DetailsTaskRepo(getIt()));
+   getIt.registerFactory<DetailsTaskCubit>(()=>DetailsTaskCubit(getIt()));
 }

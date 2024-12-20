@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:tasky_todo/core/networking/services/api_constants.dart';
 import 'package:tasky_todo/features/addtask/data/models/add_task_request.dart';
 import 'package:tasky_todo/features/addtask/data/models/upload_image_response.dart';
+import 'package:tasky_todo/features/detailstask/data/models/details_task_response.dart';
 import 'package:tasky_todo/features/home/data/models/todos_response.dart';
 import 'package:tasky_todo/features/login/data/models/login_request_body.dart';
 import 'package:tasky_todo/features/login/data/models/login_response_body.dart';
@@ -43,4 +44,6 @@ abstract class ApiService {
   Future<void> createTodo(
     @Body() AddTaskRequest addTaskRequestBody,
   );
+  @GET('/todos/{id}')
+  Future<DetailsTaskResponse> detailsTask(@Path('id') String id);
 }
