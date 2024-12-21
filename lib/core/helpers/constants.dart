@@ -24,4 +24,5 @@ project-wise conveniently!
   static const String profile = 'Profile';
   static const String taskDetails = 'task Details';
   static const String addNewTask = 'Add new task';
+  static const String editTask = 'Edit task';
 }

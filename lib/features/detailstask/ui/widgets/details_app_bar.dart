@@ -5,11 +5,13 @@ import 'package:tasky_todo/core/helpers/images_manger.dart';
 
 import 'package:tasky_todo/core/theming/styles.dart';
 import 'package:tasky_todo/features/detailstask/ui/widgets/option_drop_button.dart';
+import 'package:tasky_todo/features/edit_task/data/models/edit_task_response.dart';
 
 class DetailsAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const DetailsAppBar({required this.title,required this.id, super.key});
+  const DetailsAppBar({required this.editTaskResponse, required this.title,required this.id, super.key});
   final String title;
   final String id;
+  final  EditTaskResponse editTaskResponse;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -40,7 +42,7 @@ class DetailsAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       actions:   [
-       OptionDropButton(id: id,),
+       OptionDropButton(editTaskResponse: editTaskResponse,id: id,),
       ],
     );
   }

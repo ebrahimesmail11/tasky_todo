@@ -4,6 +4,7 @@ import 'package:tasky_todo/core/networking/services/api_constants.dart';
 import 'package:tasky_todo/features/addtask/data/models/add_task_request.dart';
 import 'package:tasky_todo/features/addtask/data/models/upload_image_response.dart';
 import 'package:tasky_todo/features/detailstask/data/models/details_task_response.dart';
+import 'package:tasky_todo/features/edit_task/data/models/edit_task_request.dart';
 import 'package:tasky_todo/features/home/data/models/todos_response.dart';
 import 'package:tasky_todo/features/login/data/models/login_request_body.dart';
 import 'package:tasky_todo/features/login/data/models/login_response_body.dart';
@@ -48,4 +49,9 @@ abstract class ApiService {
   Future<DetailsTaskResponse> detailsTask(@Path('id') String id);
   @DELETE('/todos/{id}')
   Future<void> deleteTask(@Path('id') String id);
+  @PUT('/todos/{id}')
+  Future<void> updateTask(
+    @Path('id') String id,
+    @Body() EditTaskRequest editTaskRequest,
+  );
 }

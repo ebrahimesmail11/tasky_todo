@@ -10,6 +10,8 @@ import 'package:tasky_todo/features/addtask/logic/upload/upload_image_cubit.dart
 import 'package:tasky_todo/features/detailstask/cubit/details_task_cubit.dart';
 import 'package:tasky_todo/features/detailstask/data/repos/details_task_repo.dart';
 import 'package:tasky_todo/features/detailstask/logic/cubit/delete_task_cubit.dart';
+import 'package:tasky_todo/features/edit_task/cubit/edit_task_cubit.dart';
+import 'package:tasky_todo/features/edit_task/data/repos/edit_task_repo.dart';
 import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/data/repos/todos_repo.dart';
 import 'package:tasky_todo/features/login/logic/login_cubit.dart';
@@ -38,11 +40,13 @@ Future<void> setUpGetIt() async {
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
   getIt.registerLazySingleton<TodosRepo>(() => TodosRepo(getIt()));
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
-   getIt.registerLazySingleton<UploadImageRepo>(() => UploadImageRepo(getIt()));
-   getIt.registerFactory<UploadImageCubit>(()=> UploadImageCubit(getIt()));
-   getIt.registerLazySingleton<AddTaskRepo>(()=>AddTaskRepo(getIt()));
-   getIt.registerFactory<AddTaskCubit>(()=>AddTaskCubit(getIt()));
-     getIt.registerLazySingleton<DetailsTaskRepo>(()=>DetailsTaskRepo(getIt()));
-   getIt.registerFactory<DetailsTaskCubit>(()=>DetailsTaskCubit(getIt()));
-   getIt.registerFactory<DeleteTaskCubit>(()=>DeleteTaskCubit(getIt()));
+  getIt.registerLazySingleton<UploadImageRepo>(() => UploadImageRepo(getIt()));
+  getIt.registerFactory<UploadImageCubit>(() => UploadImageCubit(getIt()));
+  getIt.registerLazySingleton<AddTaskRepo>(() => AddTaskRepo(getIt()));
+  getIt.registerFactory<AddTaskCubit>(() => AddTaskCubit(getIt()));
+  getIt.registerLazySingleton<DetailsTaskRepo>(() => DetailsTaskRepo(getIt()));
+  getIt.registerFactory<DetailsTaskCubit>(() => DetailsTaskCubit(getIt()));
+  getIt.registerFactory<DeleteTaskCubit>(() => DeleteTaskCubit(getIt()));
+  getIt.registerLazySingleton<EditTaskRepo>(() => EditTaskRepo(getIt()));
+  getIt.registerFactory<EditTaskCubit>(() => EditTaskCubit(getIt()));
 }

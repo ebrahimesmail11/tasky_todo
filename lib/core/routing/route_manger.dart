@@ -8,6 +8,8 @@ import 'package:tasky_todo/features/addtask/ui/add_task_screen.dart';
 import 'package:tasky_todo/features/detailstask/logic/cubit/delete_task_cubit.dart';
 
 import 'package:tasky_todo/features/detailstask/ui/details_task.dart';
+import 'package:tasky_todo/features/edit_task/data/models/edit_task_response.dart';
+import 'package:tasky_todo/features/edit_task/ui/edit_task_screen.dart';
 import 'package:tasky_todo/features/home/cubit/home_cubit.dart';
 import 'package:tasky_todo/features/home/ui/home_screen.dart';
 import 'package:tasky_todo/features/login/ui/login_screen.dart';
@@ -70,6 +72,12 @@ class RouteManger {
             child: DetailsTaskScreen(
               id: arg! as String,
             ),
+          ),
+        );
+      case Routes.editTaskScreen:
+        return MaterialPageRoute(
+          builder: (_) => EditTaskScreen(
+            editTaskResponse: arg as EditTaskResponse,
           ),
         );
       default:

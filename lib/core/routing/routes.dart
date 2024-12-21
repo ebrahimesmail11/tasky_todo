@@ -7,4 +7,5 @@ class Routes{
     static const String addTaskScreen='/addTaskScreen';
     static const String profileScreen='/profileScreen';
     static const String detailsTaskScreen='/detailsTaskScreen';
+    static const String editTaskScreen='/editTaskScreen';
 }

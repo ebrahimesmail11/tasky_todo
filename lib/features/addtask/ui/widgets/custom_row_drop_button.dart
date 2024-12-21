@@ -13,7 +13,7 @@ class CustomRowDropButton<T> extends StatefulWidget {
     required this.apiValue,
     required this.values,
     required this.onValueSelected,
-    required this.flagImage,
+     this.flagImage,
     required this.initialValue,
     required this.textColor,
     super.key,

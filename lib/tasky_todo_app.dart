@@ -6,7 +6,6 @@ import 'package:tasky_todo/core/routing/route_manger.dart';
 import 'package:tasky_todo/core/routing/routes.dart';
 import 'package:tasky_todo/core/theming/colors.dart';
 import 'package:tasky_todo/core/theming/styles.dart';
-import 'package:tasky_todo/features/detailstask/logic/cubit/delete_task_cubit.dart';
 import 'package:tasky_todo/features/login/logic/login_cubit.dart';
 import 'package:tasky_todo/features/signup/logic/sign_up_cubit.dart';
 

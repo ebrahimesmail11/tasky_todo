@@ -69,14 +69,16 @@ class TaskListTile extends StatelessWidget {
                                 color: getRightStatusContainerColor(todo.status ?? ''),
                               borderRadius: BorderRadius.circular(5.r),
                             ),
-                            child: Text(
-                              textAlign: TextAlign.center,
-                              capitalizeFirstLetter(
-                                todo.status ?? '',
+                            child: FittedBox(
+                              child: Text(
+                                textAlign: TextAlign.center,
+                                capitalizeFirstLetter(
+                                  todo.status ?? '',
+                                ),
+                                style: TextStyles.font12RedMedium.copyWith(
+                                      color: getRightStatusTextColor(todo.status??'')
+                                    ),
                               ),
-                              style: TextStyles.font12RedMedium.copyWith(
-                                    color: getRightStatusTextColor(todo.status??'')
-                                  ),
                             ),
                           ),
                         ),
@@ -84,15 +86,17 @@ class TaskListTile extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 5.h),
-                  Text(
-                     capitalizeFirstLetter(
-                              todo.desc??'',
-                            ),
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      color: Colors.grey,
+                  Flexible(
+                    child: Text(
+                       capitalizeFirstLetter(
+                                todo.desc??'',
+                              ),
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.grey,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 5.h),
                   Row(
