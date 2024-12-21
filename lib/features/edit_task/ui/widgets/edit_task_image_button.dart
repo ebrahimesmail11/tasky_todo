@@ -84,9 +84,9 @@ class EditTaskImageButton extends StatelessWidget {
                       ),
                     ),
                   ),
-                  if (uploadImageCubit.getimageUrl.isNotEmpty)
+                  if (uploadImageCubit.getimageUrl.isEmpty)
                     Positioned(
-                      top: 10,
+                      height: 90.h,
                       left: 0,
                       right: 0,
                       child: Row(
